@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniPA</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="icon" type="image/png" href="icon.png"/>
+    <link rel="manifest" href="manifest.json"/>
+    <meta name="theme-color" content="#2563eb"/>
+</head>
+<body>
+
+  <header>
+    <h1>UniPA 🎓</h1>
+    <p>Your Personal University Assistant</p>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+  </header>
+
+  <nav>
+    <button onclick="showSection('timetable')">Timetable</button>
+    <button onclick="showSection('gpa')">GPA</button>
+    <button onclick="showSection('notes')">Notes</button>
+    <button onclick="showSection('expenses')">Expenses</button>
+  </nav>
+
+  <main>
+    <!-- TIMETABLE -->
+    <section id="timetable" class="section">
+      <h2>📅 Timetable</h2>
+      <input id="courseName" placeholder="Course name" />
+      <input id="courseDay" placeholder="Day (Mon, Tue…)" />
+      <input id="courseTime" placeholder="Time (8-10am)" />
+      <button onclick="addTimetable()">Add Course</button>
+      <table id="timetableTable">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="timetableBody"></tbody>
+      </table>
+    </section>
+
+    <!-- GPA -->
+    <section id="gpa" class="section hidden">
+      <h2>📊 GPA Calculator</h2>
+      <input id="score" type="number" placeholder="Enter score" />
+      <input id="unit" type="number" placeholder="Course unit" />
+      <button onclick="addResult()">Add Course</button>
+      <p id="gpaResult">CGPA: 0.00</p>
+      <ul id="gpaList"></ul>
+    </section>
+
+    <!-- NOTES -->
+    <section id="notes" class="section hidden">
+      <h2>🗂 Notes</h2>
+      <input id="noteCourse" placeholder="Course code (e.g MTH101)" />
+      <input id="noteTitle" placeholder="Note title" />
+      <textarea id="noteContent" placeholder="Write your note..."></textarea>
+      <button onclick="saveNote()">Save Note</button>
+      <ul id="notesList"></ul>
+    </section>
+
+    <!-- EXPENSES -->
+    <section id="expenses" class="section hidden">
+      <h2>💰 Expense Tracker</h2>
+      <input id="expenseItem" placeholder="Expense name" />
+      <input id="expenseAmount" type="number" placeholder="Amount (₦)" />
+      <input id="expenseDate" type="date" />
+      <button onclick="addExpense()">Add Expense</button>
+      <table id="expenseTable">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Amount (₦)</th>
+            <th>Date</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="expenseBody"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="1"><strong>Total</strong></td>
+            <td colspan="3" id="expenseTotal">₦0</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
